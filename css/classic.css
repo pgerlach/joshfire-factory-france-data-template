@@ -1,0 +1,146 @@
+body{
+  padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+}
+#canvas_france {
+  position: relative;
+  width: 948px;
+  height: 500px;
+  margin: auto;
+}
+#figures {
+  left: 490px;
+  position: absolute;
+  top: 50px;
+  width: 430px;
+  background-color: white;
+}
+#figures th{
+	background-color: #EAEAEA;
+	color: #414141;
+	font-size: 18px;
+	font-weight: normal;
+	text-align: center;
+	font-variant: small-caps;
+}
+#figures .national{
+  width: 160px;
+}
+#figures .data{
+  text-align: center;
+  padding-top: 22px;
+}
+#figures .name{
+  width: 110px;
+  text-align: right;
+  font-size: 14px;
+}
+.data.dept p{
+	display: none;
+}
+.dataLine{
+	display: block;
+}
+.data p{
+	margin-bottom: 20px;
+}
+.data .val{
+  color: #022133;
+  font-size: 26px;
+}
+
+#legend{
+  left: 490px;
+  position: absolute;
+  top: 330px;
+  width: 300px;
+  background-color: white;
+}
+#legendTitle{
+  width: 70px;
+  color: #414141;
+  background-color: #EAEAEA;
+  text-align: center;
+  font-variant: small-caps;
+  overflow: hidden;
+  padding-top: 25px;
+}
+#legend ul{
+  display: block;
+  float: left;
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+  margin: 0;
+}
+#legend li{
+  padding-left: 0;
+}
+#legend li p{
+  margin: 0 0 0 25px;
+  padding: 0;
+}
+#legend li div{
+  float: left;
+  width: 15px;
+  height: 15px;
+}
+#gap0{
+  background-color: #88C2E4;
+}
+#gap1{
+  background-color: #589FC8;
+}
+#gap2{
+  background-color: #1C5A80;
+}
+#gap3{
+  background-color: #0B3A56;
+}
+#gap4{
+  background-color: #022133;
+}
+/*var palette = ["#88C2E4", "#589FC8", "#1C5A80", "#0B3A56", "#022133"];;*/
+
+.infoDep{
+  bottom: 100px;
+  font-family: Calibri,arial;
+  font-size: 20px;
+  height: 30px;
+  position: absolute;
+  right: 25px;
+  text-align: left;
+  width: 320px;
+}
+#explications{
+  margin-top: 50px;
+}
+.page-header {
+  background-color: #f5f5f5;
+  padding: 5px 20px 5px;
+  margin: -20px -20px 20px;
+}
+.content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.container > footer p {
+  text-align: center; /* center align it with the container */
+}
+.infoDep{
+  display: none;
+}
+
+#about p{
+  text-align: center;
+}
+#logos img{
+  display: block;
+  margin: 20px auto 0 auto;
+}

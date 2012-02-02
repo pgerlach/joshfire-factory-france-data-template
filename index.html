@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>OpenDataCampus - Disparités PACS</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/classic.css" />
+</head>
+
+<body id="top">
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="#">Disparités géographiques des PACS</a>
+        <ul class="nav">
+          <li class="active"><a href="#top">Application</a></li>
+          <li><a href="#explications">Détails</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="content">
+      <div class="page-header">
+        <h1><small>
+          Répartition par département du
+          nombre de déclarations de PACS par an pour 100 000 hab.
+        </small></h1>
+      </div>
+      <div class="row">
+        <div class="span16">
+          
+          <div id="canvas_france">
+            <table id="figures" class="bordered-table">
+              <tr> 
+                <th class='national'>France</th>
+                <th class='dept' id='deptName'></th>
+              </tr>
+              <tr>
+                <td class='data national'>
+                  <p>
+					<span id='nationAbsVal' class='dataLine val'></span>
+					PACS conclus
+				  </p>
+				  <p> soit </p>
+                  <p>
+					<span class='dataLine'>
+						<span id='nationRelVal' class='val'></span>
+					</span>
+					<span>pour cent mille habitants</span>
+				  </p>
+                </td>
+                <td class='data dept'>
+                  <p id='deptAbsValP'>
+					<span id='deptAbsVal' class='dataLine val'></span>
+					PACS conclus
+				  </p>
+				  <p id='deptSoit'> soit </p>
+                  <p id='deptRelValP'>
+					<span class='dataLine'>
+						<span id='deptRelVal' class='val'></span>
+					</span>
+					<span>pour cent mille habitants</span>
+				  </p>
+				  <!--
+                  <p id='deptRelGapP'>
+					<span id='deptRelGap' class='dataLine val'></span>
+					<span>par rapport à la moyenne nationale</span>
+				  </p>
+				  -->
+                </td>
+              </tr>
+            </table>
+			
+			<table id='legend' class='bordered-table'>
+			  <tr>
+				<td>
+				  <ul>
+					<li title='écart de plus de -50%'><div id='gap0'></div><p>fortement en dessous</p></li>
+					<li title='écart entre -20% et -50%'><div id='gap1'></div><p>en dessous</p></li>
+					<li title='écart entre -20% et +20%'><div id='gap2'></div><p>autour</p></li>
+					<li title='écart entre +20% et +50%'><div id='gap3'></div><p>au dessus </p></li>
+					<li title='écart de plus de +50%'><div id='gap4'></div><p>fortement au dessus</p></li>
+				  </ul>
+				</td>
+				<td id='legendTitle'>
+				  écarts à la <br /> moyenne nationale
+				</td>
+			  </tr>
+			</table>
+			
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="page-header" id="explications">
+        <h1>Détail</h1>
+      </div>
+      <div class="row">
+        <div class="span12">
+          
+          <h3>But de l'application</h3>
+          <p>
+            L'application permet de représenter les écarts existants entre les
+            déclarations de PACS par département.<br />
+            Elle a été fabriquée dans le cadre du concours <b>Open Data Campus</b>
+            organisé par <a href='www.etalab.gouv.fr'>Etalab</a>. Elle a donc avant
+			tout un intérêt pédagogique et ne doit en aucun cas être considérée
+			comme un travail journalistique professionel.
+          </p>
+		  
+		  <h3>Fonctionnement</h3>
+          <p>
+			L'application a été pensée pour être très intuitive pour un usager
+			fréquent du web. Il suffit de cliquer sur les cercles des années en bas
+			pour changer d'année. On peut aussi cliquer sur les départements pour
+			récupérer leurs données. La partie de droite est un tableau affichant
+			les données correspondantes à l'année courante, à l'échelle nationale
+			et à l'échelle du département sélectionné.
+          </p>
+          
+          <h3>Création</h4>
+          <p>
+            La première étape a été de récupérer les nombres de déclarations de
+            PACS par département, en combinant tous les tribunaux de chaque département.
+            Puis j'ai effectué des calculs intermédiaires sur tableur pour avoir un
+            jeu de données facile à représenter et apportant du sens aux données brutes.
+            J'ai choisi de pondérer par le nombre d'habitants des départements pour
+            permettre d'harmoniser les résultats et que la représentation avec une
+            légende commune ait un sens.
+		  </p>
+          
+          <h3>Sources</h3>
+          <p>
+			<ul>
+			  <li>
+				<a href="http://www.justice.gouv.fr/art_pix/stat_pacs_declar_juridic_20091214.ods">
+				  http://www.justice.gouv.fr/art_pix/stat_pacs_declar_juridic_20091214.ods
+				</a> :	la source principale utilisée pour la réalisation de cette appli fait
+				partie du jeu de données proposé pour le concours. C'est un fichier
+				tableur présentant les nombres de PACS déclarés par Tribunaux entre
+				1999 et 2009. <i>Attention, les données de l'année 2009 ne sont pas
+				définitives, le dernier trimestre n'y figure pas encore</i>.
+			  </li>
+			  <li>
+				<a href="http://www.insee.fr/fr/ppp/bases-de-donnees/donnees-detaillees/estim-pop/estim-pop-dep-sca-1990-2009.xls">
+				  http://www.insee.fr/fr/ppp/bases-de-donnees/donnees-detaillees/estim-pop/estim-pop-dep-sca-1990-2009.xls
+				</a> : fichier tableur présentant
+				la population estimée par département entre les années 1980 et 2009.
+			  </li>
+			</ul>
+          </p>
+		  
+		  <h3>Ressources</h3>
+		  <p>
+			<ul>
+			  <li>
+				<a href="http://raphaeljs.com/">RaphaëlJS</a> : librairie javascript
+				de dessin vectoriel. Je l'ai choisie pour sa stabilité, son support
+				de nombreuses plateformes et navigateurs, et enfin pour sa simplicité
+				d'utilisation.
+				L'utilisation de dessin vectoriel permet un zoom à l'infini sans perte
+				de qualité, ce qui est pratique sur une carte.
+			  </li>
+			  <li>
+				<a href='http://upload.wikimedia.org/wikipedia/commons/3/3c/Carte_vierge_d%C3%A9partements_fran%C3%A7ais_avec_DOM.svg'>
+				  wikimedia
+				</a> : Carte svg des départements français avec les DOM TOM
+			  </li>
+			  <li>
+				<a href="www.cparker15.com/wp-content/uploads/2011/11/csv-to-json.html">
+				  cparker15 csv to json
+				</a> : outil en ligne pour convertir des fichiers CSV en JSON
+			  <li>
+				<a href='http://www.readysetraphael.com/'>readysetraphael.com</a> :
+				outil en ligne pour convertir une image vectorielle au format SVG en
+				objet RaphaëlJS.
+			  </li>
+			  <li>
+				<a href='http://www.thenounproject.com'>thenounproject.com</a> :
+				banque d'icônes vectorielles gratuites.
+			  </li>
+			</ul>
+		  </p>
+		  
+        </div>
+		<div class="span4" id="about">
+		  
+		  <p id='aboutme'>
+			Application Réalisée par<br />
+			<a href='mailto(adrien.di-pasquale@insa-lyon.fr)'>Adrien Di Pasquale</a>
+		  </p>
+		  <p>
+			Concours Open Campus 2011
+		  </p>
+		  <p id='logos'>
+			<a href='www.data.gouv.fr'>
+			  <img src='resources/datagouv.svg' alt='data.gouv.fr' />
+			</a>
+			<a href='etalab.gouv.fr'>
+			  <img src='resources/etalab.svg' alt='etalab' />
+			</a>
+		  </p>
+		</div>
+      </div>
+    </div>
+    
+    <footer>
+    </footer>
+
+  </div>
+  
+  <script src="js/raphael-min.js" charset="utf-8" ></script>
+  <script src="js/pacs_map.js" charset="utf-8" ></script>
+</body>
+</html>
