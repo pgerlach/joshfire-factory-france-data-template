@@ -1,0 +1,40 @@
+{
+  "name": "dataFrance",
+  "fullName": "Data France",
+  "description": "Compare data between departements of France, and the evolution of this comparison on a timescale",
+  "version": "0.0.1",
+  "keywords": [
+    "France"
+  ],
+  "maintainers": [
+    {
+      "name": "Pierre-Rudolf Gerlach",
+      "email": "pierre@joshfire.com",
+      "web": "http://www.joshfire.com"
+    }
+  ],
+  "joshfire": {
+    "images": {
+      "small": "template/imgs/screenshot-small.png",
+      "big": "template/imgs/screenshot-big.png"
+    },
+    "datasources": {
+      "data": {
+        "title": "Input data",
+        "description": "Spreadsheet input data (TODO)",
+      }
+    },
+    "devices": [
+      {
+        "devices": "desktop",
+        "startfile": "",
+        "orientation": "auto",
+        "images": "",
+        "screenshots": [
+          "",
+          ""
+        ]
+      }
+    ]
+  }
+}
