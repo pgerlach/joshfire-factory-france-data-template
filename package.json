@@ -30,7 +30,7 @@
       "gap": {
         "title": "Gap data",
         "description": "Spreadsheet with gap data (description TODO)"
-      },
+      }
     },
     "devices": [
       {
