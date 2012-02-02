@@ -19,10 +19,18 @@
       "big": "template/imgs/screenshot-big.png"
     },
     "datasources": {
-      "data": {
-        "title": "Input data",
-        "description": "Spreadsheet input data (TODO)",
-      }
+      "absolute": {
+        "title": "Absolute data",
+        "description": "Spreadsheet with absolute data (description TODO)"
+      },
+      "relative": {
+        "title": "Relative data",
+        "description": "Spreadsheet with relative data (description TODO)"
+      },
+      "gap": {
+        "title": "Gap data",
+        "description": "Spreadsheet with gap data (description TODO)"
+      },
     },
     "devices": [
       {
