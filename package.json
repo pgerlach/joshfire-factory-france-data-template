@@ -52,10 +52,12 @@
         }
       },
       "form": [
-        "params.baseYear",
+        "baseYear",
+        "name",
+        "desc",
         "datasources.absolute",
         "datasources.relative",
-        "datasources.gap"
+        "datasources.gap",
         ]
     },
     "devices": [
