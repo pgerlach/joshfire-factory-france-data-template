@@ -59,7 +59,7 @@
         "params.desc",
         "datasources.absolute",
         "datasources.relative",
-        "datasources.gap",
+        "datasources.gap"
         ]
     },
     "devices": [
