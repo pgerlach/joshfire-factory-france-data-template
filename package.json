@@ -54,9 +54,9 @@
         }
       },
       "form": [
-        "baseYear",
-        "name",
-        "desc",
+        "params.baseYear",
+        "params.name",
+        "params.desc",
         "datasources.absolute",
         "datasources.relative",
         "datasources.gap",
