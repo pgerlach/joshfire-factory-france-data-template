@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta charset='utf-8' />
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <script type="text/javascript" data-joshfire-bootstraped>(function() {
+  var Joshfire = window.Joshfire || {};
+  Joshfire.factory = {
+    globalConfig: {"HOST":"factory-joshfire.herokuapp.com","PORT":"80","DATAHOST":"data-joshfire.herokuapp.com","DATAPORT":"80","DATAVERSION":"1","TRANSLOADITKEY":"25128f462228434da8c2f7385ae95914","TRANSLOADIT_TPL_PHONEGAPBUILD":"9d652804bbdb4397a35d16877c1a99f3","TRANSLOADIT_TPL_PAGE_INFO":"6e28267860054d469d7278aa78ddb534","DATAHOSTPORT":"data-joshfire.herokuapp.com","HOSTPORT":"factory-joshfire.herokuapp.com"},
+    config: {"app":{"id":"4f2ade7ab09edd0100009e4f","icon":null,"logo":null,"name":"Pacs","version":"1.0"},"template":{"name":"dataFrance","version":"0.0.2","options":{"params":{"baseYear":1999, "title": "Disparités géographiques des PACS", "desc": "Répartition par département du nombre de déclarations de PACS par an pour 100 000 hab."}}}},
+    device: {"type":"phone"}
+  };
+  Joshfire.factory.config.datasources = {"absolute":{"name":"spreadsheet absolute","db":"google","col":"spreadsheets","query":{"filter":{"sheetid":1,"docid":"https://docs.google.com/spreadsheet/pub?hl=fr&hl=fr&key=0AnRJk3rTbCSXdDJwZWo0REVQcy03bFFUcmtvSk1xdnc&output=html"}},"runatclient":false},"relative":{"name":"speadsheet relative","db":"google","col":"spreadsheets","query":{"filter":{"sheetid":2,"docid":"https://docs.google.com/spreadsheet/pub?hl=fr&hl=fr&key=0AnRJk3rTbCSXdDJwZWo0REVQcy03bFFUcmtvSk1xdnc&output=html"}},"runatclient":false},"gap":{"name":"spreadsheet gap","db":"google","col":"spreadsheets","query":{"filter":{"sheetid":3,"docid":"https://docs.google.com/spreadsheet/pub?hl=fr&hl=fr&key=0AnRJk3rTbCSXdDJwZWo0REVQcy03bFFUcmtvSk1xdnc&output=html"}},"runatclient":false}};
+  window.Joshfire = Joshfire;
+})();(function () { (function(a,b){var c=function(a,b){for(var c in b)b.hasOwnProperty(c)&&(a[c]=b[c]);return a},d=function(){function e(a){var c=document.createElement("script"),d=!1;c.src=a,c.async=!0,c.onload=c.onreadystatechange=function(){!d&&(!this.readyState||this.readyState==="loaded"||this.readyState==="complete")&&(d=!0,c.onload=c.onreadystatechange=null,c&&c.parentNode&&c.parentNode.removeChild(c))},b||(b=document.getElementsByTagName("head")[0]),b.appendChild(c)}function f(b,f,g){c="?",f=f||{};for(d in f)f.hasOwnProperty(d)&&(c+=encodeURIComponent(d)+"="+encodeURIComponent(f[d])+"&");var h="json"+ ++a;return window.DatajsProxy[h]=function(a){g(a);try{delete window.DatajsProxy[h]}catch(b){}window.DatajsProxy[h]=null},e(b+c+"callback=DatajsProxy."+h),h}var a=0,b,c,d;return{get:f}}(),e=function(e,f,g){g=g||{},this.find=function(h,i){var j=this,k={};c(k,g),c(k,h),k.apikey=b.app.id,k.filter&&(k.filter=JSON.stringify(k.filter)),d.get("http://"+a.DATAHOSTPORT+"/api/"+a.DATAVERSION+"/"+e+"/"+f,k,function(a){a&&!a.name&&j.name&&(a.name=j.name),i(null,a)})},this.onLoaded=function(a){a()}},f={getCollection:function(a,b,c){return new e(a,b,c)},getCollectionDesc:function(b,c,e){d.get("http://"+a.DATAHOSTPORT+"/api/"+a.DATAVERSION+"/"+b+"/"+c+"/_desc",null,function(a){e(a)})}};window.DatajsProxy=window.Datajs=f})(Joshfire.factory.globalConfig,Joshfire.factory.config);
+(function(a,b,c){var d=function(d){var e=null,f=null;if(!d||!a||!a.datasources||!a.datasources[d])return null;e=a.datasources[d];if(Object.prototype.toString.call(e)=="[object Array]"){f={children:[],find:function(a,b){var c=e.length,d=!1,g=[],h=0,i=function(a,e){c-=1;if(d)return;a&&(d=!0),e&&g.push(e);if(a||c===0)return b(a,{entries:g})};for(h=0;h<e.length;h++)f.children[h].find(a,i)}};for(var g=0;g<e.length;g++)f.children[g]=(e[g].runatclient?b:c).getCollection(e[g].db,e[g].col,e[g].query),f.children[g].name=e[g].name,f.children[g].config=e[g];return f}return f=(e.runatclient?b:c).getCollection(e.db,e.col,e.query),f.name=e.name,f.config=e,f};Joshfire.factory.getDataSource=d})(Joshfire.factory.config,window.DatajsClient,window.DatajsProxy);
+})();
+</script>
+
+</head>
+<body>
+<div style="container">
+<h1><script type="text/javascript">document.write(Joshfire.factory.config.template.options.params.title)</script></h1><br />
+<p><script type="text/javascript">document.write(Joshfire.factory.config.template.options.params.desc)</script></p>
+<div class="row">
+	<div class="span6">
+		<h2>France</h2>
+		<span id='nationAbsVal'></span> (<span id='nationRelVal'></span> pour 100 000 hab.)
+	</div>
+	<div class="span6">
+		<span id='deptSoit' style='display:none'>
+			<h2><span id='deptName'></span></h2>
+			 <span id='deptAbsValP'><span id='deptAbsVal'></span></span> <span id='deptRelValP'>(<span id='deptRelVal'></span> pour 100 000 hab.)</span>
+		</span>
+	</div>
+</div>
+<form>
+  <select id="selectDept" onChange="updateContent()" >
+  </select>
+  <select id="selectYear" onChange="updateContent()" >
+  </select>
+</form>
+</div>
+<script src="js/underscore.js" charset="utf-8" ></script>
+<script src="js/pacs_map.js" charset="utf-8" ></script>
+<script type="text/javascript" >
+	var deptSelect = document.getElementById('selectDept');
+	deptSelect[0] = new Option('Sélectionnez un département', -1);
+	var selectIdx = 1;
+	_.map(departementsNames, function (entry, idx) {
+		if (undefined != entry) {
+			deptSelect[selectIdx++] = new Option(idx + ' - ' + entry, idx);
+		}
+	});
+
+	var years = [];
+	for (var i=0; i<nbYears; ++i) {
+		years.push(baseYear + i);
+	}
+	var yearSelect = document.getElementById('selectYear');
+	_.map(years, function (entry, idx) {
+		yearSelect[idx] = new Option(entry, entry);
+	});
+</script>
+<script type="text/javascript" >
+function updateContent(arg) {
+	currentYearKey = document.getElementById('selectYear').selectedIndex;
+	selectedDept = document.getElementById('selectDept').value;
+	refreshTableNational();
+	refreshTableDept();
+}
+</script>
+
+</body>
+</html>
