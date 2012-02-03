@@ -34,15 +34,21 @@
     },
     "options": {
       "schema": {
-        "params": {
           "title": "Parameters",
           "type": "object",
           "properties": {
             "baseYear": {
               "type": "number",
               "title": "The year your data starts"
+            },
+            "title": {
+              "type": "string",
+              "title": "Main title of the page"
+            },
+            "desc": {
+              "type": "string",
+              "title": "Description, in one line, of the presented data"
             }
-          }
         }
       },
       "form": [
