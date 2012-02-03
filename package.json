@@ -15,8 +15,8 @@
   ],
   "joshfire": {
     "images": {
-      "small": "template/imgs/screenshot-small.png",
-      "big": "template/imgs/screenshot-big.png"
+      "small": "img/screenshot-small.png",
+      "big": "img/screenshot-big.png"
     },
     "datasources": {
       "absolute": {
@@ -78,7 +78,7 @@
         "orientation": "auto",
         "images": "",
         "screenshots": [
-          "img/screenshot-desktop-1.png"
+          "img/screenshot-phone-1.png"
         ]
       }
 
