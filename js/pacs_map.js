@@ -20,8 +20,14 @@ var dataSrcAbsolute = f.getDataSource("absolute");
 var dataSrcRelative = f.getDataSource("relative");
 var dataSrcGap = f.getDataSource("gap");
 
-// columns names would need to be taken from a spreadsheet also
-var colNames = ['a1999', 'a2000', 'a2001', 'a2002', 'a2003', 'a2004', 'a2005', 'a2006', 'a2007', 'a2008', 'a2009' ];
+var baseYear = 1999; // should be an option of the template
+var nbYears = 11;
+
+// generate colNames
+var colNames = [];
+for (var i=0; i<nbYears; ++i) {
+	colNames.push('a' + (baseYear + i));
+}
 
 var absValsNational = [];
 var relValsNational = [];
