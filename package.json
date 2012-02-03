@@ -2,7 +2,7 @@
   "name": "dataFrance",
   "fullName": "Data France",
   "description": "Compare data between departements of France, and the evolution of this comparison on a timescale",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "keywords": [
     "France"
   ],
