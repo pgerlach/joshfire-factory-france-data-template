@@ -403,32 +403,14 @@ function drawTimeSlider(){
   guide.attr({fill: "#ccc", stroke: "none"});
   
   var targets = raphPaper.set();
-  targets.push(
-    raphPaper.circle(TIMELINE_X_INI, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 1 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 2 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 3 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 4 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 5 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 6 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 7 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 8 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 9 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS),
-    raphPaper.circle(TIMELINE_X_INI + 10 * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS) );
+  for (var i=0; i<nbYears; ++i) {
+  	targets.push(raphPaper.circle(TIMELINE_X_INI + i * TIMELINE_X_DEC, TIMELINE_Y, TIMELINE_RADIUS));
+  };
   targets.attr({fill: "#fff", stroke: "#666"});
   var labels = raphPaper.set();
-  labels.push(
-    raphPaper.text(TIMELINE_X_INI, TIMELINE_Y, currentYear),
-    raphPaper.text(TIMELINE_X_INI + 1 * TIMELINE_X_DEC, TIMELINE_Y, "2000"),
-    raphPaper.text(TIMELINE_X_INI + 2 * TIMELINE_X_DEC, TIMELINE_Y, "2001"),
-    raphPaper.text(TIMELINE_X_INI + 3 * TIMELINE_X_DEC, TIMELINE_Y, "2002"),
-    raphPaper.text(TIMELINE_X_INI + 4 * TIMELINE_X_DEC, TIMELINE_Y, "2003"),
-    raphPaper.text(TIMELINE_X_INI + 5 * TIMELINE_X_DEC, TIMELINE_Y, "2004"),
-    raphPaper.text(TIMELINE_X_INI + 6 * TIMELINE_X_DEC, TIMELINE_Y, "2005"),
-    raphPaper.text(TIMELINE_X_INI + 7 * TIMELINE_X_DEC, TIMELINE_Y, "2006"),
-    raphPaper.text(TIMELINE_X_INI + 8 * TIMELINE_X_DEC, TIMELINE_Y, "2007"),
-    raphPaper.text(TIMELINE_X_INI + 9 * TIMELINE_X_DEC, TIMELINE_Y, "2008"),
-    raphPaper.text(TIMELINE_X_INI + 10 * TIMELINE_X_DEC, TIMELINE_Y, "2009") );
+  for (var i=0; i<nbYears; ++i) {
+  	labels.push(raphPaper.text(TIMELINE_X_INI + i * TIMELINE_X_DEC, TIMELINE_Y, baseYear + i));
+  }
   labels.attr({font: "18px Calibri, Arial", fill: "#666", "text-anchor": "center"});
   
   mover = raphPaper.circle(TIMELINE_X_INI, TIMELINE_Y, TIMELINE_RADIUS);
