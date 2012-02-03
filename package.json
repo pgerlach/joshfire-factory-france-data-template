@@ -32,6 +32,23 @@
         "description": "Spreadsheet with gap data (description TODO)"
       }
     },
+    "options": {
+      "schema": {
+        "params": {
+          "title": "Parameters",
+          "type": "object",
+          "properties": {
+            "baseYear": {
+              "type": "number",
+              "title": "The year your data starts"
+            }
+          }
+        }
+      },
+      "form": [
+        "params.baseYear"
+        ]
+    },
     "devices": [
       {
         "devices": "desktop",
