@@ -106,30 +106,36 @@ var deptFills = [];
 //same data, but put in percentages (= scale for the circle)
 var totalPercentagesData = [4, 15, 13, 17, 22, 27, 41, 53, 70, 100, 91];
 
-var palette = ["#88C2E4", "#589FC8", "#1C5A80", "#0B3A56", "#022133"];
 
-var deciles = [-50,-20,20,50];
+if (f.device.type == "desktop") {
 
-/* POSITIONS */
-WIDTH = 948;
-HEIGHT = 500;
-TIMELINE_Y = 490;
-TIMELINE_X_DEC = 80;
-TIMELINE_X_INI = 70;
-TIMELINE_RADIUS = 22;
-TIMELINE_GUIDE_HEIGHT = 1;
-TITLE_X = 650;
-TITLE_NATIONAL_Y = 50;
-TITLE_DEPARTEMENT_Y = 350;
-TOTAL_CIRCLE_X = 750;
-TOTAL_CIRCLE_Y = 200;
-NATIONAL_LABELS_OFFSET = 20;
-CIRCLE_MAX_RADIUS = 90;
+	var palette = ["#88C2E4", "#589FC8", "#1C5A80", "#0B3A56", "#022133"];
+
+	var deciles = [-50,-20,20,50];
+
+	/* POSITIONS */
+	WIDTH = 948;
+	HEIGHT = 500;
+	TIMELINE_Y = 490;
+	TIMELINE_X_DEC = 80;
+	TIMELINE_X_INI = 70;
+	TIMELINE_RADIUS = 22;
+	TIMELINE_GUIDE_HEIGHT = 1;
+	TITLE_X = 650;
+	TITLE_NATIONAL_Y = 50;
+	TITLE_DEPARTEMENT_Y = 350;
+	TOTAL_CIRCLE_X = 750;
+	TOTAL_CIRCLE_Y = 200;
+	NATIONAL_LABELS_OFFSET = 20;
+	CIRCLE_MAX_RADIUS = 90;
+
+	/* GLOBAL VARS */
+	//RaphaelJS root object (= canvas)
+	var raphPaper = new Raphael(document.getElementById('canvas_france'), WIDTH, HEIGHT);
+	var paths = []; //departements vector paths
+}
 
 /* GLOBAL VARS */
-//RaphaelJS root object (= canvas)
-var raphPaper = new Raphael(document.getElementById('canvas_france'), WIDTH, HEIGHT);
-var paths = []; //departements vector paths
 var currentLabel;
 var currentYearKey = 0;
 var currentYear = 1999;
@@ -153,11 +159,14 @@ var tableDeptSoitP;
 var icon;
 
 window.onload = function() {
-  //initIcon();
-  initFranceMapBis();
-  drawTimeSlider();
-  fillPaths();
-  
+
+	if (f.device.type == "desktop") {
+	  //initIcon();
+	  initFranceMapBis();
+	  drawTimeSlider();
+	  fillPaths();
+	}
+
   tableDeptName = document.getElementById("deptName");
   tableNationAbsVal = document.getElementById("nationAbsVal");
   tableNationRelVal = document.getElementById("nationRelVal");
