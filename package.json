@@ -46,7 +46,10 @@
         }
       },
       "form": [
-        "params.baseYear"
+        "params.baseYear",
+        "datasources.absolute",
+        "datasources.relative",
+        "datasources.gap"
         ]
     },
     "devices": [
