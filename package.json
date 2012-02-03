@@ -65,7 +65,17 @@
     "devices": [
       {
         "devices": "desktop",
-        "startfile": "",
+        "startfile": "index.html",
+        "orientation": "auto",
+        "images": "",
+        "screenshots": [
+          "",
+          ""
+        ]
+      },
+      {
+        "devices": "phone",
+        "startfile": "index.phone.html",
         "orientation": "auto",
         "images": "",
         "screenshots": [
@@ -73,6 +83,7 @@
           ""
         ]
       }
+
     ]
   }
 }
