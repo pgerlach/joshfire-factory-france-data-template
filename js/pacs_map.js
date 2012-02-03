@@ -1,4 +1,4 @@
-/* DATA */
+// DATA
 //nationwide number of PACS each year 
 
 // need to have included underscore.js
@@ -23,6 +23,13 @@ var dataSrcGap = f.getDataSource("gap");
 // columns names would need to be taken from a spreadsheet also
 var colNames = ['a1999', 'a2000', 'a2001', 'a2002', 'a2003', 'a2004', 'a2005', 'a2006', 'a2007', 'a2008', 'a2009' ];
 
+var absValsNational = [];
+var relValsNational = [];
+var absValsDepts = [];
+var relValsDepts = [];
+var gapsDepts = [];
+
+
 dataSrcAbsolute.find(
   {}, // options
   function (err, data) {
@@ -31,14 +38,16 @@ dataSrcAbsolute.find(
     _.map(data.entries, function (entry, idx) {
     	var dpt = entry['gsx:dpt'];
     	if (dpt == "national") {
+    		absValsNational = [];
     		_.each(colNames, function(colName, err) {
-	    		absValsNational[data] = entry['gsx:' + colName];
+    			absValsNational.push(entry['gsx:' + colName]);
     		});
     	}
     	else {
-			_.each(colNames, function(colName, err) {
-				absValsDepts[dpt] = entry['gsx:' + colName];
-			});
+    		absValsDepts[dpt] = [];
+    		_.each(colNames, function(colName, err) {
+    			absValsDepts[dpt].push(entry['gsx:' + colName]);
+    		});
     	}
 	})
   }
@@ -53,14 +62,16 @@ dataSrcRelative.find(
     _.map(data.entries, function (entry, idx) {
     	var dpt = entry['gsx:dpt'];
     	if (dpt == "national") {
+    		relValsNational = [];
     		_.each(colNames, function(colName, err) {
-	    		relValsNational[data] = entry['gsx:' + colName];
+    			relValsNational.push(entry['gsx:' + colName]);
     		});
     	}
     	else {
-			_.each(colNames, function(colName, err) {
-				relValsDepts[dpt] = entry['gsx:' + colName];
-			});
+    		relValsDepts[dpt] = [];
+    		_.each(colNames, function(colName, err) {
+    			relValsDepts[dpt].push(entry['gsx:' + colName]);
+    		});
     	}
 	})
   }
@@ -73,8 +84,9 @@ dataSrcGap.find(
     // to render items first. We'll skip that for brevity.
     _.map(data.entries, function (entry, idx) {
    	var dpt = entry['gsx:dpt'];
+		gapsDepts[dpt] = [];
 		_.each(colNames, function(colName, err) {
-			gapDepts[dpt] = entry['gsx:' + colName];
+			gapsDepts[dpt].push(entry['gsx:' + colName]);
 		});
 	})
   }
@@ -82,7 +94,7 @@ dataSrcGap.find(
 
 
 
-var departementsNames = [null,"Ain","Aisne","Allier","Alpes-de-Haute-Provence","Hautes-Alpes","Alpes-Maritimes","Ardèche","Ardennes","Ariège","Aube","Aude","Aveyron","Bouches-du-Rhône","Calvados","Cantal","Charente","Charente-Maritime","Cher","Corrèze",null,"Côte-d'Or","Côtes-d'Armor","Creuse","Dordogne","Doubs","Drôme","Eure","Eure-et-Loir","Finistère","Gard","Haute-Garonne","Gers","Gironde","Hérault","Ille-et-Vilaine","Indre","Indre-et-Loire","Isère","Jura","Landes","Loir-et-Cher","Loire","Haute-Loire","Loire-Atlantique","Loiret","Lot","Lot-et-Garonne","Lozère","Maine-et-Loire","Manche","Marne","Haute-Marne","Mayenne","Meurthe-et-Moselle","Meuse","Morbihan","Moselle","Nièvre","Nord","Oise","Orne","Pas-de-Calais","Puy-de-Dôme","Pyrénées-Atlantiques","Hautes-Pyrénées","Pyrénées-Orientales","Bas-Rhin","Haut-Rhin","Rhône","Haute-Saône","Saône-et-Loire","Sarthe","Savoie","Haute-Savoie","Paris","Seine-Maritime","Seine-et-Marne","Yvelines","Deux-Sèvres","Somme","Tarn","Tarn-et-Garonne","Var","Vaucluse","Vendée","Vienne","Haute-Vienne","Vosges","Yonne","Territoire de Belfort","Essonne","Hauts-de-Seine","Seine-Saint-Denis","Val-de-Marne","Val-d'Oise",null,null,null,null,null,null,"Corse-du-Sud","Haute-Corse",null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"Guadeloupe","Martinique","Guyane","La Réunion"];
+var departementsNames = [null,"Ain","Aisne","Allier","Alpes-de-Haute-Provence","Hautes-Alpes","Alpes-Maritimes","Ardèche","Ardennes","Ariège","Aube","Aude","Aveyron","Bouches-du-Rhône","Calvados","Cantal","Charente","Charente-Maritime","Cher","Corrèze",null,"Côte-d'Or","Côtes-d'Armor","Creuse","Dordogne","Doubs","Drôme","Eure","Eure-et-Loir","Finistère","Gard","Haute-Garonne","Gers","Gironde","Hérault","Ille-et-Vilaine","Indre","Indre-et-Loire","Isère","Jura","Landes","Loir-et-Cher","Loire","Haute-Loire","Loire-Atlantique","Loiret","Lot","Lot-et-Garonne","Lozère","Maine-et-Loire","Manche","Marne","Haute-Marne","Mayenne","Meurthe-et-Moselle","Meuse","Morbihan","Moselle","Nièvre","Nord","Oise","Orne","Pas-de-Calais","Puy-de-Dôme","Pyrénées-Atlantiques","Hautes-Pyrénées","Pyrénées-Orientales","Bas-Rhin","Haut-Rhin","Rhône","Haute-Saône","Saône-et-Loire","Sarthe","Savoie","Haute-Savoie","Paris","Seine-Maritime","Seine-et-Marne","Yvelines","Deux-Sèvres","Somme","Tarn","Tarn-et-Garonne","Var","Vaucluse","Vendée","Vienne","Haute-Vienne","Vosges","Yonne","Territoire de Belfort","Essonne","Hauts-de-Seine","Seine-Saint-Denis","Val-de-Marne","Val-d'Oise",null,null,null,null,null,null,"Corse-du-Sud","Haute-Corse",null,null,null,null,null,null,null,"Guadeloupe","Martinique","Guyane","La Réunion"];
 //fills colors
 var deptFills = [];
 //same data, but put in percentages (= scale for the circle)
