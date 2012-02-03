@@ -20,7 +20,7 @@ var dataSrcAbsolute = f.getDataSource("absolute");
 var dataSrcRelative = f.getDataSource("relative");
 var dataSrcGap = f.getDataSource("gap");
 
-var baseYear = f.config.template.options.params.baseYear;
+var baseYear = f.config.template.options.baseYear;
 var nbYears = 11;
 
 // generate colNames
